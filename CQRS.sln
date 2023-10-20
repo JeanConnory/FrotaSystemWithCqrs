@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrotaApp.API", "FrotaApp.API\FrotaApp.API.csproj", "{E134F0D7-7B82-4444-8135-B7A366FA5981}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrotaApp.Domain", "FrotaApp.Domain\FrotaApp.Domain.csproj", "{49F056FB-778A-4C36-A615-0E22474274B8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E134F0D7-7B82-4444-8135-B7A366FA5981}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E134F0D7-7B82-4444-8135-B7A366FA5981}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E134F0D7-7B82-4444-8135-B7A366FA5981}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E134F0D7-7B82-4444-8135-B7A366FA5981}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49F056FB-778A-4C36-A615-0E22474274B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49F056FB-778A-4C36-A615-0E22474274B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49F056FB-778A-4C36-A615-0E22474274B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49F056FB-778A-4C36-A615-0E22474274B8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7A5ACDCF-956C-42F8-BBF4-8EEEB1F1B311}
+	EndGlobalSection
+EndGlobal
