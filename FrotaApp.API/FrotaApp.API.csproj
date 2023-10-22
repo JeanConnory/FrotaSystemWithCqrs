@@ -10,4 +10,11 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FrotaApp.Application.Input\FrotaApp.Application.Input.csproj" />
+    <ProjectReference Include="..\FrotaApp.Application.Output\FrotaApp.Application.Output.csproj" />
+    <ProjectReference Include="..\FrotaApp.Infrastructure.Input\FrotaApp.Infrastructure.Input.csproj" />
+    <ProjectReference Include="..\FrotaApp.Infrastructure.Output\FrotaApp.Infrastructure.Output.csproj" />
+  </ItemGroup>
+
 </Project>

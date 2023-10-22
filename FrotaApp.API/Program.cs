@@ -1,13 +1,46 @@
+using FrotaApp.Application.Input.Commands.VehicleContext;
+using FrotaApp.Application.Input.Receivers;
+using FrotaApp.Application.Input.Repositories;
+using FrotaApp.Application.Output.Interfaces;
+using FrotaApp.Infrastructure.Input.Repositories;
+using FrotaApp.Infrastructure.Output.Repositories;
+using FrotaApp.Infrastructure.Shared.Factory;
+using Microsoft.AspNetCore.Mvc;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddScoped<SqlFactory>();
+builder.Services.AddTransient<IWriteVehicleRepository, WriteVehicleRepository>();
+builder.Services.AddTransient<IReadVehicleRepository, ReadVehicleRepository>();
+builder.Services.AddTransient<InsertVehicleReceiver>();
+
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+app.MapGet("/vehicle", ([FromServices] IReadVehicleRepository repository) =>
+{
+    return repository.GetVehicles();
+});
+
+app.MapGet("/vehicle/GetById", ([FromQuery] int id, [FromServices] IReadVehicleRepository repository) =>
+{
+    return repository.FindById(id);
+});
+
+app.MapGet("/vehicle/GetByCategoryId", ([FromQuery] int categoryId, [FromServices] IReadVehicleRepository repository) =>
+{
+    return repository.FindByCategoryId(categoryId);
+});
+
+app.MapPost("/vehicle/PostVehicle", ([FromServices] InsertVehicleReceiver receiver, [FromBody] VehicleCommand command) =>
+{
+    return receiver.Action(command);
+});
+
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -16,29 +49,4 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast")
-.WithOpenApi();
-
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}

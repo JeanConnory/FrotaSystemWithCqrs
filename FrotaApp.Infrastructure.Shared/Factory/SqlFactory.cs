@@ -1,7 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using System.Data;
 
-namespace FrotaApp.Infrastructure.Input.Factory
+namespace FrotaApp.Infrastructure.Shared.Factory
 {
     public class SqlFactory
     {

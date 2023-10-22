@@ -1,8 +1,8 @@
 ﻿using Dapper;
 using FrotaApp.Application.Output.DTOs;
 using FrotaApp.Application.Output.Interfaces;
-using FrotaApp.Infrastructure.Output.Factory;
 using FrotaApp.Infrastructure.Output.Queries;
+using FrotaApp.Infrastructure.Shared.Factory;
 using System.Data;
 
 namespace FrotaApp.Infrastructure.Output.Repositories
