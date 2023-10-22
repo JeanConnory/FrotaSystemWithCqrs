@@ -6,7 +6,7 @@ namespace FrotaApp.Application.Output.Interfaces
     {
         IEnumerable<VehicleDTO> GetVehicles();
 
-        IEnumerable<VehicleDTO> FindById(int id);
+        VehicleDTO FindById(int id);
         
         IEnumerable<VehicleDTO> FindByCategoryId(int CategoryId);
     }

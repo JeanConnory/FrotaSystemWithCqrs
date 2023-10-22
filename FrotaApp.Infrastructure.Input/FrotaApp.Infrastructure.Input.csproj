@@ -7,7 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.1.15" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\FrotaApp.Application.Input\FrotaApp.Application.Input.csproj" />
+    <ProjectReference Include="..\FrotaApp.Infrastructure.Shared\FrotaApp.Infrastructure.Shared.csproj" />
   </ItemGroup>
 
 </Project>
